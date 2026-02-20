@@ -1,5 +1,6 @@
 import tkinter as tk
 import os
+import sys
 from tkinter import messagebox
 from core import steam, workshop, server
 
@@ -10,7 +11,12 @@ LINE="#3f4147"
 BTN="#3a3d42"
 BTN_HOVER="#4b4f56"
 TXT="#e6e6e6"
-ASSETS="assets"
+if getattr(sys, 'frozen', False):
+    BASE_PATH = sys._MEIPASS
+else:
+    BASE_PATH = os.path.abspath(".")
+
+ASSETS = os.path.join(BASE_PATH, "assets")
 
 FONT=("Segoe UI",10)
 FONT_B=("Segoe UI",10,"bold")
